@@ -5,8 +5,11 @@ function loadGists() {
 }
 
 function getFilesInfoFromGists(gists) {
+    console.log(gists);
     const filesInfo = [];
     for (const gist of gists) {
+        if (gist["files"] === undefined)
+            continue;
         for (const file of Object.values(gist["files"]))
             filesInfo.push({
                 "filename": file["filename"],
@@ -18,8 +21,19 @@ function getFilesInfoFromGists(gists) {
 }
 
 function writeFilesInfoToTable(filesInfo) {
+    console.log('writeFilesInfoToTable', filesInfo);
     const tableElement = document.querySelector('.gistsTable');
     for (const fileInfo of filesInfo) {
-        
+        const newRow = document.createElement('tr');
+        for (const key of ["filename", "type", "raw_url"]) {
+            const newCell = document.createElement('td');
+            newCell.innerText = fileInfo[key];
+            newRow.appendChild(newCell);
+        }
+        tableElement.appendChild(newRow);
     }
 }
+
+//loadGists()
+//    .then(getFilesInfoFromGists)
+//    .then(writeFilesInfoToTable);
