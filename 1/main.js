@@ -5,7 +5,6 @@ function loadGists() {
 }
 
 function getFilesInfoFromGists(gists) {
-    console.log(gists);
     const filesInfo = [];
     for (const gist of gists) {
         if (gist["files"] === undefined)
@@ -21,7 +20,6 @@ function getFilesInfoFromGists(gists) {
 }
 
 function writeFilesInfoToTable(filesInfo) {
-    console.log('writeFilesInfoToTable', filesInfo);
     const tableElement = document.querySelector('.gistsTable');
     for (const fileInfo of filesInfo) {
         const newRow = document.createElement('tr');
@@ -34,6 +32,6 @@ function writeFilesInfoToTable(filesInfo) {
     }
 }
 
-//loadGists()
-//    .then(getFilesInfoFromGists)
-//    .then(writeFilesInfoToTable);
+loadGists()
+    .then(getFilesInfoFromGists)
+    .then(writeFilesInfoToTable);

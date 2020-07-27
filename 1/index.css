@@ -1,0 +1,20 @@
+.gistsTable {
+    border-collapse: collapse;
+}
+
+.gistsTable td {
+    padding: 1vmin 2vmin;
+}
+
+.gistsTable tr:first-child {
+    border-bottom: 2px solid lightgrey;
+    font-weight: bold;
+}
+
+.gistsTable tr:not(:first-child):not(:last-child) {
+    border-bottom: 1px solid lightgrey;
+}
+
+.gistsTable tr:nth-child(even) {
+    background-color: #eee;
+}
